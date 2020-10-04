@@ -92,7 +92,7 @@ namespace Excel_export
                 values[counter, 5] = f.NumberOfRooms;
                 values[counter, 6] = f.FloorArea;
                 values[counter, 7] = f.Price;
-                values[counter, 8] = f.Price/f.FloorArea;
+                values[counter, 8] = (f.Price *1000000)/f.FloorArea;
                 if (f.Elevator == true)
                 {
                     values[counter, 4] = "Van";
@@ -115,7 +115,7 @@ namespace Excel_export
             headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
             int LastRowID = xlSheet.UsedRange.Rows.Count;
             Excel.Range tableRange = xlSheet.get_Range(GetCell(2, 1), GetCell(2, LastRowID));
-
+            tableRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
 
         }
 
