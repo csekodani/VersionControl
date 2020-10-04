@@ -114,7 +114,7 @@ namespace Excel_export
             headerRange.Interior.Color = Color.LightBlue;
             headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
             int LastRowID = xlSheet.UsedRange.Rows.Count;
-            Excel.Range tableRange = xlSheet.get_Range(GetCell(2, 1), GetCell(2, LastRowID));
+            Excel.Range tableRange = xlSheet.get_Range(GetCell(2, 1), GetCell(LastRowID,headers.Length)) ;
             tableRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
 
         }
