@@ -44,7 +44,7 @@ namespace Excel_export
                 xlApp.Visible = true;
                 xlApp.UserControl = true;
 
-
+           
 
             }
             catch (Exception ex)
@@ -89,6 +89,13 @@ namespace Excel_export
                 counter++;
                 //itt lehet ki kell tolteni az osszeset
             }
+            xlSheet.get_Range(
+             GetCell(2, 1),
+             GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
+
+
+
+
         }
 
         private string GetCell(int x, int y)
