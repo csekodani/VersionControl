@@ -85,7 +85,19 @@ namespace Excel_export
             foreach (Flat f in FLats)
             {
                 values[counter, 0] = f.Code;
-                values[counter, 8] = "";
+                values[counter, 1] = f.Vendor;
+                values[counter, 2] = f.Side;
+                values[counter, 3] = f.District;
+                //elevator az if- ben
+                values[counter, 5] = f.NumberOfRooms;
+                values[counter, 6] = f.FloorArea;
+                values[counter, 7] = f.Price;
+                values[counter, 8] = f.Price/f.FloorArea;
+                if (f.Elevator == true)
+                {
+                    values[counter, 4] = "Van";
+                }
+                else { values[counter, 4] = "Nincs"; }
                 counter++;
                 //itt lehet ki kell tolteni az osszeset
             }
