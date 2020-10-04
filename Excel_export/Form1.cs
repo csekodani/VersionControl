@@ -12,9 +12,21 @@ namespace Excel_export
 {
     public partial class Form1 : Form
     {
+        RealEstateEntities context = new RealEstateEntities();
+        List<Flat> FLats;
         public Form1()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void LoadData()
+        {
+            FLats = context.Flat.ToList();        
         }
     }
 }
