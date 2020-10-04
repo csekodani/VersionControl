@@ -44,6 +44,8 @@ namespace Excel_export
                 xlApp.Visible = true;
                 xlApp.UserControl = true;
 
+
+
             }
             catch (Exception ex)
             {
@@ -58,6 +60,52 @@ namespace Excel_export
 
             }
 
+        }
+        private void CreateTable()
+        {
+            string[] headers = new string[] {
+                "Kód",
+                "Eladó",
+                "Oldal",
+                "Kerület",
+                "Lift",
+                "Szobák száma",
+                "Alapterület (m2)",
+                "Ár (mFt)",
+                "Négyzetméter ár (Ft/m2)"};
+
+            for (int  i = 0;  i < headers.Length;  i++)
+            {
+                xlSheet.Cells[1, i + 1] = headers[i];
+            }
+
+
+            object[,] values = new object[FLats.Count, headers.Length];
+            int counter = 0;
+            foreach (Flat f in FLats)
+            {
+                values[counter, 0] = f.Code;
+                values[counter, 8] = "";
+                counter++;
+                //itt lehet ki kell tolteni az osszeset
+            }
+        }
+
+        private string GetCell(int x, int y)
+        {
+            string ExcelCoordinate = "";
+            int dividend = y;
+            int modulo;
+
+            while (dividend > 0)
+            {
+                modulo = (dividend - 1) % 26;
+                ExcelCoordinate = Convert.ToChar(65 + modulo).ToString() + ExcelCoordinate;
+                dividend = (int)((dividend - modulo) / 26);
+            }
+            ExcelCoordinate += x.ToString();
+
+            return ExcelCoordinate;
         }
 
         private void Form1_Load(object sender, EventArgs e)
