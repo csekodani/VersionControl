@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMaintenance", "UserMaintenance.csproj", "{3ABC18CF-E1EA-4E71-95A3-C7F1881F8599}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaR_Calc", "..\VaR_Calc\VaR_Calc.csproj", "{F217EEC2-A35A-41D5-BFA1-3BE78E4E537D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excel_export", "..\Excel_export\Excel_export.csproj", "{37CB6ADE-DD63-4493-A289-E6015C4BB8AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{3ABC18CF-E1EA-4E71-95A3-C7F1881F8599}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3ABC18CF-E1EA-4E71-95A3-C7F1881F8599}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3ABC18CF-E1EA-4E71-95A3-C7F1881F8599}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F217EEC2-A35A-41D5-BFA1-3BE78E4E537D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F217EEC2-A35A-41D5-BFA1-3BE78E4E537D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F217EEC2-A35A-41D5-BFA1-3BE78E4E537D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F217EEC2-A35A-41D5-BFA1-3BE78E4E537D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37CB6ADE-DD63-4493-A289-E6015C4BB8AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37CB6ADE-DD63-4493-A289-E6015C4BB8AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37CB6ADE-DD63-4493-A289-E6015C4BB8AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37CB6ADE-DD63-4493-A289-E6015C4BB8AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
