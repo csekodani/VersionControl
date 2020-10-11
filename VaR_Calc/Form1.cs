@@ -83,6 +83,10 @@ namespace VaR_Calc
         private void button1_Click(object sender, EventArgs e)
         {
             SaveFileDialog sf = new SaveFileDialog();
+            sf.DefaultExt = "txt";
+            sf.CheckFileExists = true;
+            sf.Filter = "Text Files (*.txt )| *.txt|All files (*.*)|*.*";
+            sf.Title = "Save Porftolio To File";
             List<decimal> Nyereségek = new List<decimal>();
 
             if (sf.ShowDialog()==DialogResult.OK)
