@@ -17,6 +17,7 @@ namespace VaR_Calc
         List<Tick> Ticks;
         List<PortfolioItem> Portfolio = new List<PortfolioItem>();
         PortfolioEntities context = new PortfolioEntities();
+        List<decimal> Nyereségek = new List<decimal>();
         public Form1()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace VaR_Calc
         private void VaRCalc()
         {
 
-            List<decimal> Nyereségek = new List<decimal>();
+            
             int intervalum = 30;
             DateTime kezdőDátum = (from x in Ticks select x.TradingDay).Min();
             DateTime záróDátum = new DateTime(2016, 12, 30);
@@ -80,14 +81,15 @@ namespace VaR_Calc
 
         }
 
+        
+
         private void button1_Click(object sender, EventArgs e)
         {
             SaveFileDialog sf = new SaveFileDialog();
             sf.DefaultExt = "txt";
-            sf.CheckFileExists = true;
             sf.Filter = "Text Files (*.txt )| *.txt|All files (*.*)|*.*";
             sf.Title = "Save Porftolio To File";
-            List<decimal> Nyereségek = new List<decimal>();
+           
 
             if (sf.ShowDialog()==DialogResult.OK)
             {
@@ -100,5 +102,6 @@ namespace VaR_Calc
             }
             
         }
+        
     }
 }
