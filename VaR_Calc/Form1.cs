@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,12 @@ namespace VaR_Calc
             Ticks = context.Ticks.ToList();
             dataGridView1.DataSource = Ticks;
             CreatePortfolio();
+            VaRCalc();
+            
+        }
+
+        private void VaRCalc()
+        {
 
             List<decimal> Nyereségek = new List<decimal>();
             int intervalum = 30;
@@ -41,7 +48,9 @@ namespace VaR_Calc
                                       select x)
                                         .ToList();
             MessageBox.Show(nyereségekRendezve[nyereségekRendezve.Count() / 5].ToString());
+
         }
+
 
         private void CreatePortfolio() 
         {
@@ -69,6 +78,23 @@ namespace VaR_Calc
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sf = new SaveFileDialog();
+            List<decimal> Nyereségek = new List<decimal>();
+
+            if (sf.ShowDialog()==DialogResult.OK)
+            {
+                StreamWriter writer = new StreamWriter(sf.FileName);
+                foreach (var item in Nyereségek)
+                {
+                    writer.WriteLine(item.ToString());
+                }
+                writer.Close();
+            }
+            
         }
     }
 }
