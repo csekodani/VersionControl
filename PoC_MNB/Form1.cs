@@ -81,14 +81,12 @@ namespace PoC_MNB
             xml.LoadXml(mainCurrencies);
             foreach (XmlElement element in xml.DocumentElement)
             {
-                var rate = new RateData();
-                
+                //var childElement=(XmlElement)element.ChildNodes[0];
+                for (int i = 0; i < element.ChildNodes.Count; i++)
+                {
+                    Currencies.Add(element.ChildNodes[i].InnerText);
+                }
 
-                /// kell e a rate data, debug kell, hogy mi;rn enm jo 
-                var childElement = (XmlElement)element.ChildNodes[0];
-                rate.Currency = childElement.GetAttribute("curr");
-                if (rate.Currency == null) continue;
-                Currencies.Add(rate.Currency);
             }
         
         
@@ -105,6 +103,10 @@ namespace PoC_MNB
                 Rates.Add(rate);
                 rate.Date = DateTime.Parse(element.GetAttribute("date"));
                 var childElement = (XmlElement)element.ChildNodes[0];
+                if (childElement==null)
+                {
+                    continue;
+                }
                 rate.Currency = childElement.GetAttribute("curr");
                 var unit = decimal.Parse(childElement.GetAttribute("unit"));
                 var value = decimal.Parse(childElement.InnerText);
