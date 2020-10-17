@@ -9,30 +9,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace PoC_MNB
 {
     public partial class Form1 : Form
     {
+
+        BindingList<RateData> Rates = new BindingList<RateData>();
+        MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
+        string mainResult;
         public Form1()
         {
             InitializeComponent();
-            MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
-            BindingList<RateData> Rates = new BindingList<RateData>();
-            dataGridView1.DataSource = Rates;
+            dataGridView1.DataSource = Rates;  
+            mainResult=getResult();
+            XmlData();     
+        }
+        private string getResult()
+        {
 
-
+            
             var request = new GetExchangeRatesRequestBody()
             {
                 currencyNames = "EUR",
                 startDate = "2020-01-01",
                 endDate = "2020-06-30"
-            
+
             };
             var response = mnbService.GetExchangeRates(request);
             var result = response.GetExchangeRatesResult;
-        }
+            return result;
 
+        }
+        private void XmlData()
+        {
+
+            var xml = new XmlDocument();
+            xml.LoadXml(mainResult);
+
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
