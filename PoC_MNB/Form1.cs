@@ -21,14 +21,19 @@ namespace PoC_MNB
         BindingList<RateData> Rates = new BindingList<RateData>();
         MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
         string mainResult;
+        List<string> currencyList = new List<string>();
+        
         public Form1()
         {
             InitializeComponent();
+            currencyList.Add("EUR");
+
             RefreshData();
         }
         private void RefreshData()
         {
                 Rates.Clear();
+                comboBox1.DataSource = currencyList;
                 dataGridView1.DataSource = Rates;
                 chartRateData.DataSource = Rates;
                 mainResult = getResult();
