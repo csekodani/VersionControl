@@ -24,11 +24,11 @@ namespace PoC_MNB
         public Form1()
         {
             InitializeComponent();
-
+            RefreshData();
         }
         private void RefreshData()
         {
-
+                Rates.Clear();
                 dataGridView1.DataSource = Rates;
                 chartRateData.DataSource = Rates;
                 mainResult = getResult();
@@ -101,6 +101,21 @@ namespace PoC_MNB
         private void chartRateData_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
         }
     }
 }
