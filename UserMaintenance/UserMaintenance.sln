@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserMaintenance", "UserMain
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excel_export", "..\Excel_export\Excel_export.csproj", "{37CB6ADE-DD63-4493-A289-E6015C4BB8AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoC_MNB", "..\PoC_MNB\PoC_MNB.csproj", "{A0866AE6-EC63-4629-857E-4637A913300A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{37CB6ADE-DD63-4493-A289-E6015C4BB8AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37CB6ADE-DD63-4493-A289-E6015C4BB8AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37CB6ADE-DD63-4493-A289-E6015C4BB8AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0866AE6-EC63-4629-857E-4637A913300A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0866AE6-EC63-4629-857E-4637A913300A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0866AE6-EC63-4629-857E-4637A913300A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0866AE6-EC63-4629-857E-4637A913300A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
