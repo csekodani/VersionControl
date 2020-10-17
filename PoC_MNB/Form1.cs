@@ -50,7 +50,7 @@ namespace PoC_MNB
             xml.LoadXml(mainResult);
             foreach (XmlElement element in xml.DocumentElement)
             {
-                var rate = RateData();
+                var rate = new RateData();
                 Rates.Add(rate);
                 rate.Date = DateTime.Parse(element.GetAttribute("date"));
                 var childElement = (XmlElement)element.ChildNodes[0];
