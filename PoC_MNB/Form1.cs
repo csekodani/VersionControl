@@ -1,4 +1,5 @@
-﻿using PoC_MNB.ServiceReference;
+﻿using PoC_MNB.Entities;
+using PoC_MNB.ServiceReference;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,9 @@ namespace PoC_MNB
         {
             InitializeComponent();
             MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
+            BindingList<RateData> Rates = new BindingList<RateData>();
+            dataGridView1.DataSource = Rates;
+
 
             var request = new GetExchangeRatesRequestBody()
             {
