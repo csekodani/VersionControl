@@ -19,15 +19,14 @@ namespace PoC_MNB
     {
 
         BindingList<RateData> Rates = new BindingList<RateData>();
+        BindingList<string> Currencies = new BindingList<string>();
         MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
         string mainResult;
-        List<string> currencyList = new List<string>();
         
         public Form1()
         {
             InitializeComponent();
-            
-
+            comboBox1.DataSource = Currencies;
             RefreshData();
         }
         private void RefreshData()
@@ -38,9 +37,11 @@ namespace PoC_MNB
                 chartRateData.DataSource = Rates;
                 mainResult = getResult();
                 XmlData();
+                
                 genChart();
             
         }
+      
         private string getResult()
         {
 
@@ -69,7 +70,6 @@ namespace PoC_MNB
                 rate.Date = DateTime.Parse(element.GetAttribute("date"));
                 var childElement = (XmlElement)element.ChildNodes[0];
                 rate.Currency = childElement.GetAttribute("curr");
-                currencyList.Add(childElement.GetAttribute("curr"));
                 var unit = decimal.Parse(childElement.GetAttribute("unit"));
                 var value = decimal.Parse(childElement.InnerText);
                 if (unit!=0)
