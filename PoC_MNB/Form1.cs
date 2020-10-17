@@ -1,6 +1,7 @@
 ﻿using PoC_MNB.Entities;
 using PoC_MNB.ServiceReference;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -47,6 +48,21 @@ namespace PoC_MNB
 
             var xml = new XmlDocument();
             xml.LoadXml(mainResult);
+            foreach (XmlElement element in xml.DocumentElement)
+            {
+                var rate = RateData();
+                Rates.Add(rate);
+                rate.Date = DateTime.Parse(element.GetAttribute("date"));
+                var childElement = (XmlElement)element.ChildNodes[0];
+                rate.Currency = childElement.GetAttribute("curr");
+                var unit = decimal.Parse(childElement.GetAttribute("unit"));
+                var value = decimal.Parse(childElement.InnerText);
+                if (unit!=0)
+                {
+                    rate.Value = value/unit;
+                }
+            }
+
 
         }
         private void Form1_Load(object sender, EventArgs e)
