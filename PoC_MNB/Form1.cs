@@ -24,11 +24,17 @@ namespace PoC_MNB
         public Form1()
         {
             InitializeComponent();
-            dataGridView1.DataSource = Rates;
-            chartRateData.DataSource = Rates;
-            mainResult=getResult();
-            XmlData();
-            genChart();
+
+        }
+        private void RefreshData()
+        {
+
+                dataGridView1.DataSource = Rates;
+                chartRateData.DataSource = Rates;
+                mainResult = getResult();
+                XmlData();
+                genChart();
+            
         }
         private string getResult()
         {
@@ -88,6 +94,11 @@ namespace PoC_MNB
 
         }
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chartRateData_Click(object sender, EventArgs e)
         {
 
         }
