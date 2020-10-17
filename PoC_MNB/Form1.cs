@@ -108,7 +108,10 @@ namespace PoC_MNB
                     continue;
                 }
                 rate.Currency = childElement.GetAttribute("curr");
-                var unit = decimal.Parse(childElement.GetAttribute("unit"));
+                // comma is used instead of a dot, so parse would fail...
+                string cUnit = childElement.GetAttribute("unit");
+                cUnit = cUnit.Replace(",", ".");        //change the comma to dot, to be abvle to parse
+                var unit = decimal.Parse(cUnit);
                 var value = decimal.Parse(childElement.InnerText);
                 if (unit!=0)
                 {
