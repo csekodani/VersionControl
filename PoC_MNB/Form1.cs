@@ -105,6 +105,8 @@ namespace PoC_MNB
                 var childElement = (XmlElement)element.ChildNodes[0];
                 if (childElement==null)
                 {
+                    rate.Currency = "HUF";
+
                     continue;
                 }
                 rate.Currency = childElement.GetAttribute("curr");
@@ -112,7 +114,10 @@ namespace PoC_MNB
                 string cUnit = childElement.GetAttribute("unit");
                 cUnit = cUnit.Replace(",", ".");        //change the comma to dot, to be abvle to parse
                 var unit = decimal.Parse(cUnit);
-                var value = decimal.Parse(childElement.InnerText);
+                string cValue = childElement.InnerText;
+                cValue=cValue.Replace(",", ".");        //same problem occured with value
+                var value = decimal.Parse(cValue);
+
                 if (unit!=0)
                 {
                     rate.Value = value/unit;
