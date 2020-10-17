@@ -88,6 +88,7 @@ namespace PoC_MNB
                 }
 
             }
+            Currencies.Remove("HUF"); //huf-huf exchange is always 0
         
         
         
@@ -105,8 +106,6 @@ namespace PoC_MNB
                 var childElement = (XmlElement)element.ChildNodes[0];
                 if (childElement==null)
                 {
-                    rate.Currency = "HUF";
-
                     continue;
                 }
                 rate.Currency = childElement.GetAttribute("curr");
