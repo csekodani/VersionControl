@@ -26,14 +26,14 @@ namespace PoC_MNB
         public Form1()
         {
             InitializeComponent();
-            currencyList.Add("EUR");
+            
 
             RefreshData();
         }
         private void RefreshData()
         {
                 Rates.Clear();
-                comboBox1.DataSource = currencyList;
+                
                 dataGridView1.DataSource = Rates;
                 chartRateData.DataSource = Rates;
                 mainResult = getResult();
@@ -69,6 +69,7 @@ namespace PoC_MNB
                 rate.Date = DateTime.Parse(element.GetAttribute("date"));
                 var childElement = (XmlElement)element.ChildNodes[0];
                 rate.Currency = childElement.GetAttribute("curr");
+                currencyList.Add(childElement.GetAttribute("curr"));
                 var unit = decimal.Parse(childElement.GetAttribute("unit"));
                 var value = decimal.Parse(childElement.InnerText);
                 if (unit!=0)
@@ -76,6 +77,7 @@ namespace PoC_MNB
                     rate.Value = value/unit;
                 }
             }
+            
 
 
         }
