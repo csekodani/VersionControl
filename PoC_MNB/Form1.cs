@@ -22,12 +22,28 @@ namespace PoC_MNB
         BindingList<string> Currencies = new BindingList<string>();
         MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
         string mainResult;
+        string mainCurrencies;
         
         public Form1()
         {
             InitializeComponent();
-            comboBox1.DataSource = Currencies;
+            MakeCurrencyListFull();
             RefreshData();
+        }
+        private void MakeCurrencyListFull()
+        {
+            
+            Currencies.Clear();
+            mainCurrencies = GetCurrency();
+            currencyXml();
+            comboBox1.DataSource = Currencies;
+        }
+        private string GetCurrency()
+        {
+            var request = new GetCurrenciesRequestBody() { };
+            var response =mnbService.GetCurrencies(request);
+            var res = response.GetCurrenciesResult;
+            return res;
         }
         private void RefreshData()
         {
@@ -57,6 +73,26 @@ namespace PoC_MNB
             var result = response.GetExchangeRatesResult;
             return result;
 
+        }
+
+        private void currencyXml() 
+        {
+            var xml = new XmlDocument();
+            xml.LoadXml(mainCurrencies);
+            foreach (XmlElement element in xml.DocumentElement)
+            {
+                var rate = new RateData();
+                
+
+                /// kell e a rate data, debug kell, hogy mi;rn enm jo 
+                var childElement = (XmlElement)element.ChildNodes[0];
+                rate.Currency = childElement.GetAttribute("curr");
+                if (rate.Currency == null) continue;
+                Currencies.Add(rate.Currency);
+            }
+        
+        
+        
         }
         private void XmlData()
         {
