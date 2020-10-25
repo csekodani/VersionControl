@@ -81,8 +81,8 @@ namespace Population_Simulation
         {
             InitializeComponent();
             Population = GetPopulation(@"C:\Temp\nép.csv");
-            BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
-            DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
+            BirthProbabilities = GetBirth(@"C:\Temp\születés.csv");
+            DeathProbabilities = GetDeath(@"C:\Temp\halál.csv");
         }
        
 
