@@ -83,9 +83,10 @@ namespace Population_Simulation
         public Form1()
         {
             InitializeComponent();
-            startBtn.Text = "Start";
+            startBtn.Text = "Start"; //valamiert nincs text prop a window ban
             zarEvLbl.Text = "Zaro Ev";
-            
+            browseBtn.Text = "Browse";
+            label1.Text = "";
             for (int i = 2005; i <2025; i++)
             {
                 zaroevek.Add(i);
@@ -168,6 +169,16 @@ namespace Population_Simulation
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void browseBtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog nfd = new OpenFileDialog();
+            if (nfd.ShowDialog()==DialogResult.OK)
+            {
+                label1.Text = nfd.FileName;
+
+            }
         }
     }
 }
