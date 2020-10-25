@@ -17,6 +17,7 @@ namespace Population_Simulation
         List<Person> Population = new List<Person>();
         List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
         List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
+        List<int> zaroevek = new List<int>();
         Random rng = new Random(1234);
 
         public List<Person> GetPopulation(string csvpath)
@@ -83,9 +84,14 @@ namespace Population_Simulation
         {
             InitializeComponent();
             startBtn.Text = "Start";
-          
-
+            zarEvLbl.Text = "Zaro Ev";
             
+            for (int i = 2005; i <2025; i++)
+            {
+                zaroevek.Add(i);
+            }
+            comboBox1.DataSource = zaroevek;
+
 
         }
         public void Simulation()
@@ -93,12 +99,12 @@ namespace Population_Simulation
             Population = GetPopulation(@"C:\Windows\Temp\nép.csv");
             BirthProbabilities = GetBirth(@"C:\Windows\Temp\születés.csv");
             DeathProbabilities = GetDeath(@"C:\Windows\Temp\halál.csv");
-            for (int year = 2005; year <= 2024; year++)
+            for (int year = 2005; year <= int.Parse(comboBox1.SelectedItem.ToString()); year++)
             {
-                // Végigmegyünk az összes személyen
+
                 foreach (Person person in Population)
                 {
-                    SimStep(year, person);
+                    SimStep(year, person); // de emiatt miert ad 0-t?
                 }
 
 
@@ -117,29 +123,26 @@ namespace Population_Simulation
 
         private void SimStep(int year, Person person)
         {
-            //Ha halott akkor kihagyjuk, ugrunk a ciklus következő lépésére
+            
             if (!person.IsAlive) return;
 
-            // Letároljuk az életkort, hogy ne kelljen mindenhol újraszámolni
             byte age = (byte)(year - person.BirthYear);
 
-            // Halál kezelése
-            // Halálozási valószínűség kikeresése
             double pDeath = (from x in DeathProbabilities
                              where x.Gender == person.Gender && x.Age == age
                              select x.Death_Probability).FirstOrDefault();
-            // Meghal a személy?
+
             if (rng.NextDouble() <= pDeath)
                 person.IsAlive = false;
 
-            //Születés kezelése - csak az élő nők szülnek
+
             if (person.IsAlive && person.Gender == Gender.Female)
             {
-                //Szülési valószínűség kikeresése
+
                 double pBirth = (from x in BirthProbabilities
                                  where x.Age == age
                                  select x.Birth_Probability).FirstOrDefault();
-                //Születik gyermek?
+
                 if (rng.NextDouble() <= pBirth)
                 {
                     Person újszülött = new Person();
@@ -160,6 +163,11 @@ namespace Population_Simulation
         private void startBtn_Click(object sender, EventArgs e)
         {
             Simulation();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
