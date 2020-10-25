@@ -124,7 +124,7 @@ namespace Population_Simulation
             // Halálozási valószínűség kikeresése
             double pDeath = (from x in DeathProbabilities
                              where x.Gender == person.Gender && x.Age == age
-                             select x.P).FirstOrDefault();
+                             select x.Death_Probability).FirstOrDefault();
             // Meghal a személy?
             if (rng.NextDouble() <= pDeath)
                 person.IsAlive = false;
@@ -135,7 +135,7 @@ namespace Population_Simulation
                 //Szülési valószínűség kikeresése
                 double pBirth = (from x in BirthProbabilities
                                  where x.Age == age
-                                 select x.P).FirstOrDefault();
+                                 select x.Birth_Probability).FirstOrDefault();
                 //Születik gyermek?
                 if (rng.NextDouble() <= pBirth)
                 {
