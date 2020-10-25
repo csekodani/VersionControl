@@ -11,6 +11,6 @@ namespace Population_Simulation.Entities
 
         public int Age { get; set; }
         public int NumOfChildren { get; set; }
-        public double Birdt_Probability { get; set; }
+        public double Birth_Probability { get; set; }
     }
 }
