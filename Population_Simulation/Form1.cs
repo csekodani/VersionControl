@@ -17,7 +17,7 @@ namespace Population_Simulation
         List<Person> Population = new List<Person>();
         List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
         List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
-        Random rng = new Random(2020);
+        Random rng = new Random(1234);
 
         public List<Person> GetPopulation(string csvpath)
         {
@@ -82,17 +82,26 @@ namespace Population_Simulation
         public Form1()
         {
             InitializeComponent();
+            startBtn.Text = "Start";
+          
+
+            
+
+        }
+        public void Simulation()
+        {
             Population = GetPopulation(@"C:\Windows\Temp\nép.csv");
             BirthProbabilities = GetBirth(@"C:\Windows\Temp\születés.csv");
             DeathProbabilities = GetDeath(@"C:\Windows\Temp\halál.csv");
-
             for (int year = 2005; year <= 2024; year++)
             {
                 // Végigmegyünk az összes személyen
-                for (int i = 0; i < Population.Count; i++)
+                foreach (Person person in Population)
                 {
-                    SimStep(year,Population[i]);
+                    SimStep(year, person);
                 }
+
+
 
                 int nbrOfMales = (from x in Population
                                   where x.Gender == Gender.Male && x.IsAlive
@@ -104,13 +113,7 @@ namespace Population_Simulation
                     string.Format("Év: {0} Fiúk: {1} Lányok: {2}", year, nbrOfMales, nbrOfFemales));
             }
 
-
-
-
-
-
         }
-
 
         private void SimStep(int year, Person person)
         {
@@ -152,6 +155,11 @@ namespace Population_Simulation
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void startBtn_Click(object sender, EventArgs e)
+        {
+            Simulation();
         }
     }
 }
