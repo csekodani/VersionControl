@@ -17,6 +17,7 @@ namespace Population_Simulation
         List<Person> Population = new List<Person>();
         List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
         List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
+        
         public List<Person> GetPopulation(string csvpath)
         {
             List<Person> population = new List<Person>();
@@ -80,9 +81,11 @@ namespace Population_Simulation
         public Form1()
         {
             InitializeComponent();
-            Population = GetPopulation(@"C:\Temp\nép.csv");
-            BirthProbabilities = GetBirth(@"C:\Temp\születés.csv");
-            DeathProbabilities = GetDeath(@"C:\Temp\halál.csv");
+            Population = GetPopulation(@"C:\Windows\Temp\nép.csv");
+            BirthProbabilities = GetBirth(@"C:\Windows\Temp\születés.csv");
+            DeathProbabilities = GetDeath(@"C:\Windows\Temp\halál.csv");
+            dataGridView1.DataSource = Population;
+
         }
        
 
