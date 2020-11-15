@@ -25,7 +25,7 @@ namespace Factory_ptrn.Entities
         }
         protected abstract void DrawImage(Graphics g);
         
-        public void Move() //made it geneeral to move objects
+        public void MoveToy() //made it geneeral to move objects
         {
             Left += 1;
         }
