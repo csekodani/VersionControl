@@ -101,6 +101,7 @@
             this.btnBallColor.Size = new System.Drawing.Size(66, 59);
             this.btnBallColor.TabIndex = 4;
             this.btnBallColor.UseVisualStyleBackColor = true;
+            this.btnBallColor.Click += new System.EventHandler(this.btnBallColor_Click);
             // 
             // Form1
             // 

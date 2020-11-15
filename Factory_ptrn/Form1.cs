@@ -17,7 +17,8 @@ namespace Factory_ptrn
         private List<Toy> _toys = new List<Toy>();
         private IToyFactory _factory;
         private Toy _nextToy;
-        
+        private List<Color> _presColor = new List<Color>() { Color.Blue,Color.Black,Color.Fuchsia};
+        public  int colorChoiceIndex = 0;
         private IToyFactory Factory // online it was public
         {
             get { return _factory; }
@@ -33,6 +34,8 @@ namespace Factory_ptrn
             InitializeComponent();
             btnBallColor.BackColor = Color.Blue;
             Factory = new BallFactory();
+            
+
             
         }
         public void DisplayNext()
@@ -90,6 +93,13 @@ namespace Factory_ptrn
         private void ballBtn_Click(object sender, EventArgs e)
         {
             Factory = new BallFactory { BallColor=btnBallColor.BackColor};
+        }
+
+        private void btnBallColor_Click(object sender, EventArgs e)
+        {
+            colorChoiceIndex++;
+            if (colorChoiceIndex == 3) colorChoiceIndex = 0;
+            btnBallColor.BackColor = _presColor[colorChoiceIndex];
         }
     }
 }
