@@ -10,10 +10,14 @@ namespace Factory_ptrn.Entities
 {
     public class Ball : Toy
     {
-       
+        public SolidBrush BallColor { get; set; }
+        public Ball(Color c)
+        {
+            BallColor = new SolidBrush(c);
+        }
         protected override void DrawImage(Graphics g)
         {
-            g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
+            g.FillEllipse(BallColor, 0, 0, Width, Height);
 
         }
 

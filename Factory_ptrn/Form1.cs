@@ -31,6 +31,7 @@ namespace Factory_ptrn
         public Form1()
         {
             InitializeComponent();
+            btnBallColor.BackColor = Color.Blue;
             Factory = new BallFactory();
             
         }
@@ -88,7 +89,7 @@ namespace Factory_ptrn
 
         private void ballBtn_Click(object sender, EventArgs e)
         {
-            Factory = new BallFactory();
+            Factory = new BallFactory { BallColor=btnBallColor.BackColor};
         }
     }
 }
