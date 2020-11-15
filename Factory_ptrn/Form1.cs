@@ -98,8 +98,9 @@ namespace Factory_ptrn
         private void btnBallColor_Click(object sender, EventArgs e)
         {
             colorChoiceIndex++;
-            if (colorChoiceIndex == 3) colorChoiceIndex = 0;
+            if (colorChoiceIndex == _presColor.Count) colorChoiceIndex = 0;
             btnBallColor.BackColor = _presColor[colorChoiceIndex];
+            ballBtn_Click(sender, e);
         }
     }
 }
