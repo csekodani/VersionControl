@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Factory_ptrn.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,29 @@ namespace Factory_ptrn
 {
     public partial class Form1 : Form
     {
+        private List<Ball> _balls = new List<Ball>();
+        private BallFactory _factory;
+
+        public BallFactory Factory
+        {
+            get { return _factory; }
+            set { _factory = value; }
+        }
+
         public Form1()
         {
             InitializeComponent();
+            Factory = new BallFactory();
+        }
+
+        private void fileSystemWatcher1_Changed(object sender, System.IO.FileSystemEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
