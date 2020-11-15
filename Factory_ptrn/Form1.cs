@@ -16,7 +16,7 @@ namespace Factory_ptrn
         private List<Ball> _balls = new List<Ball>();
         private BallFactory _factory;
         
-        public BallFactory Factory
+        private BallFactory Factory // online it was public
         {
             get { return _factory; }
             set { _factory = value; }
