@@ -16,11 +16,16 @@ namespace Factory_ptrn
     {
         private List<Toy> _toys = new List<Toy>();
         private IToyFactory _factory;
+        private Toy _nextToy;
         
         private IToyFactory Factory // online it was public
         {
             get { return _factory; }
-            set { _factory = value; }
+            set 
+            { 
+                _factory = value;
+                DisplayNext();
+            }
         }
 
         public Form1()
@@ -29,7 +34,17 @@ namespace Factory_ptrn
             Factory = new BallFactory();
             
         }
-
+        public void DisplayNext()
+        {
+            if (_nextToy!= null)
+            {
+                Controls.Remove(_nextToy);
+            }
+            _nextToy = Factory.CreateNew();
+            _nextToy.Top = label1.Top + label1.Height + 20;
+            _nextToy.Left = label1.Left;
+            Controls.Add(_nextToy);
+        }
         private void fileSystemWatcher1_Changed(object sender, System.IO.FileSystemEventArgs e)
         {
 
@@ -64,6 +79,16 @@ namespace Factory_ptrn
                 mainPanel.Controls.Remove(oldestBall);
                 _toys.Remove(oldestBall);
             }
+        }
+
+        private void carBtn_Click(object sender, EventArgs e)
+        {
+            Factory = new CarFactory();
+        }
+
+        private void ballBtn_Click(object sender, EventArgs e)
+        {
+            Factory = new BallFactory();
         }
     }
 }
