@@ -7,16 +7,9 @@ using System.Threading.Tasks;
 
 namespace Factory_ptrn.Entities
 {
-    class BallFactory : IToyFactory
+    class CarFactory : IToyFactory
     {
-        public BallFactory()
-        {
-
-        }
         public Toy CreateNew()
-        {
-
-            return new Ball();
-        }
+        { return new Car(); }
     }
 }
