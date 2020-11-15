@@ -37,6 +37,7 @@
             this.ballBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBallColor = new System.Windows.Forms.Button();
+            this.phoneBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,9 +49,9 @@
             // 
             // mainPanel
             // 
-            this.mainPanel.Location = new System.Drawing.Point(0, 119);
+            this.mainPanel.Location = new System.Drawing.Point(0, 117);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(752, 335);
+            this.mainPanel.Size = new System.Drawing.Size(810, 150);
             this.mainPanel.TabIndex = 0;
             // 
             // conveyorTimer
@@ -96,18 +97,29 @@
             // 
             // btnBallColor
             // 
-            this.btnBallColor.Location = new System.Drawing.Point(372, 12);
+            this.btnBallColor.Location = new System.Drawing.Point(314, 12);
             this.btnBallColor.Name = "btnBallColor";
             this.btnBallColor.Size = new System.Drawing.Size(66, 59);
             this.btnBallColor.TabIndex = 4;
             this.btnBallColor.UseVisualStyleBackColor = true;
             this.btnBallColor.Click += new System.EventHandler(this.btnBallColor_Click);
             // 
+            // phoneBtn
+            // 
+            this.phoneBtn.Location = new System.Drawing.Point(417, 24);
+            this.phoneBtn.Name = "phoneBtn";
+            this.phoneBtn.Size = new System.Drawing.Size(75, 23);
+            this.phoneBtn.TabIndex = 5;
+            this.phoneBtn.Text = "Phone";
+            this.phoneBtn.UseVisualStyleBackColor = true;
+            this.phoneBtn.Click += new System.EventHandler(this.phoneBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(812, 460);
+            this.Controls.Add(this.phoneBtn);
             this.Controls.Add(this.btnBallColor);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ballBtn);
@@ -132,6 +144,7 @@
         private System.Windows.Forms.Button ballBtn;
         private System.Windows.Forms.Button carBtn;
         private System.Windows.Forms.Button btnBallColor;
+        private System.Windows.Forms.Button phoneBtn;
     }
 }
 

@@ -65,6 +65,7 @@ namespace Factory_ptrn
             _toys.Add(toy);
             toy.Left = -toy.Width;
             mainPanel.Controls.Add(toy);
+      
         }
 
         private void conveyorTimer_Tick(object sender, EventArgs e)
@@ -101,6 +102,11 @@ namespace Factory_ptrn
             if (colorChoiceIndex == _presColor.Count) colorChoiceIndex = 0;
             btnBallColor.BackColor = _presColor[colorChoiceIndex];
             ballBtn_Click(sender, e);
+        }
+
+        private void phoneBtn_Click(object sender, EventArgs e)
+        {
+            Factory = new PhoneFactory();
         }
     }
 }
