@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoC_MNB", "..\PoC_MNB\PoC_M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Population_Simulation", "..\Population_Simulation\Population_Simulation.csproj", "{29E04619-EC41-499E-A37A-986AFBA1DA2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory_ptrn", "..\Factory_ptrn\Factory_ptrn.csproj", "{71A18CF1-E513-4ABD-869B-C53245E02B61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{29E04619-EC41-499E-A37A-986AFBA1DA2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29E04619-EC41-499E-A37A-986AFBA1DA2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29E04619-EC41-499E-A37A-986AFBA1DA2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71A18CF1-E513-4ABD-869B-C53245E02B61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71A18CF1-E513-4ABD-869B-C53245E02B61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71A18CF1-E513-4ABD-869B-C53245E02B61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71A18CF1-E513-4ABD-869B-C53245E02B61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
