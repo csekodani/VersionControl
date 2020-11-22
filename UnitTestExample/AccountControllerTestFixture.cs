@@ -12,7 +12,7 @@ namespace UnitTestExample
     {
         [Test,
         TestCase("csekogmail.com",false),
-        TestCase("daniel.cseko@stud.uni-corvinus.hu",true),
+        TestCase("daniel.cseko@stud.uni-corvinus.hu",true), //most interesting to test so far but run successfuly
         TestCase("csekodaniel0@gmail.com",true),
         TestCase("csdani@@gmail.com",false)
         ]
