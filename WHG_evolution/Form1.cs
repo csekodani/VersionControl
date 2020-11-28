@@ -21,10 +21,12 @@ namespace WHG_evolution
         int nbrOfSteps = 10;
         int nbrOfStepsIncrement = 10;
         int generation = 1;
+        
 
         public Form1()
         {
             InitializeComponent();
+            
             ga = gc.ActivateDisplay();
             this.Controls.Add(ga);
             //gc.AddPlayer();
