@@ -15,6 +15,7 @@ namespace WHG_evolution
     {
         GameController gc = new GameController();
         GameArea ga;
+        Brain winnerBrain = null;
 
         int populationSize = 100;
         int nbrOfSteps = 10;
@@ -47,7 +48,21 @@ namespace WHG_evolution
                              select p;
             var topPerformers = playerList.Take(populationSize / 2).ToList();
 
-            gc.ResetCurrentLevel();
+            var winners = from p in topPerformers
+                          where p.IsWinner
+                          select p;
+            if (winners.Count() > 0)
+            {
+                winnerBrain = winners.FirstOrDefault().Brain.Clone();
+                gc.GameOver -= Gc_GameOver;
+                button1.Visible = true;
+                return;
+
+            }
+
+
+
+                gc.ResetCurrentLevel();
             foreach (var p in topPerformers)
             {
                 var b = p.Brain.Clone();
@@ -62,6 +77,7 @@ namespace WHG_evolution
                     gc.AddPlayer(b.Mutate());
             }
             gc.Start();
+
 
         }
 
